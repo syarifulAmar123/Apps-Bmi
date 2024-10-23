@@ -24,8 +24,8 @@ const Home = ({navigation}) => {
         style={{
           flexDirection: 'row',
           justifyContent: 'space-between',
-          marginLeft: 10,
-          marginRight: 10,
+          marginLeft: 15,
+          marginRight: 15,
           marginTop: 70,
         }}>
         <TouchableOpacity
@@ -38,7 +38,8 @@ const Home = ({navigation}) => {
             elevation: 1,
             // marginLeft: 30,
           }}
-          activeOpacity={0.75}>
+          activeOpacity={0.75}
+          onPress={() => PindahBroca()}>
           <Image
             source={LogoBroca}
             style={{
@@ -110,7 +111,7 @@ const Home = ({navigation}) => {
                 fontSize: 21,
                 fontFamily: 'Roboto-Medium',
                 marginTop: -1,
-                marginLeft: 55,
+                marginLeft: 60,
                 alignItems: 'flex-start',
               }}>
               BMI
@@ -138,6 +139,19 @@ const Home = ({navigation}) => {
           </View>
         </TouchableOpacity>
       </View>
+      <View style={{margin: 15, padding: 5}}>
+        <Text style={{color: 'black', marginTop: 10, textAlign: 'center'}}>
+          Kedua alat diatas ini memiliki peran masing-masing dalam membantu
+          individu memahami dan mengelola berat badan mereka. Sementara BMI
+          memberikan gambaran lebih menyeluruh tentang status berat badan
+          relatif terhadap kesehatan, kalkulator Broca menawarkan panduan yang
+          lebih sederhana untuk menetapkan target berat badan. Namun, penting
+          untuk diingat bahwa kedua metode ini tidak sempurna dan sebaiknya
+          digunakan bersama dengan penilaian kesehatan yang lebih komprehensif,
+          termasuk pemeriksaan fisik dan penilaian komposisi tubuh, untuk
+          mendapatkan gambaran yang lebih akurat tentang kesehatan seseorang.
+        </Text>
+      </View>
     </View>
   );
 };
@@ -145,10 +159,11 @@ const Home = ({navigation}) => {
 const styles = StyleSheet.create({
   Title: {
     color: '#2c2c54',
-    marginLeft: 50,
+    textAlign: 'center',
     marginTop: 50,
-    fontSize: 21,
-    fontWeight: '600',
+    fontSize: 22,
+    fontWeight: 'bold',
+    fontFamily: 'Roboto-Italic',
   },
 });
 

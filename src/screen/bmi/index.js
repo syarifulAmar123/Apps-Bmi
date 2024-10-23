@@ -10,9 +10,9 @@ import {
   Alert,
   Modal,
 } from 'react-native';
-import {Back, Man, Woman} from '../../assets';
+import {Back, Balik, Man, Woman} from '../../assets';
 
-export default function Bmi() {
+export default function Bmi({navigation}) {
   const [gender, setGender] = useState(false);
   const [pria, setPria] = useState(false);
   const [perempuan, setperempuan] = useState(false);
@@ -61,11 +61,17 @@ export default function Bmi() {
   };
 
   return (
-    <View style={{flex: 1, backgroundColor: '#80cbc4'}}>
-      <StatusBar barStyle={'dark-content'} backgroundColor={'#80cbc4'} />
+    <View style={{flex: 1, backgroundColor: '#a5d2cb'}}>
+      <StatusBar barStyle={'dark-content'} backgroundColor={'#a5d2cb'} />
       <View style={stylis.containerheader}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image
+            source={Balik}
+            style={{width: 30, height: 30, marginTop: -1}}
+          />
+        </TouchableOpacity>
         <Text style={stylis.TextHeader}>BMI Calculator</Text>
-        <TouchableOpacity activeOpacity={0.6} onPress={() => ulang()}>
+        <TouchableOpacity activeOpacity={0.4} onPress={() => ulang()}>
           <Image source={Back} style={stylis.HeaderImage} />
         </TouchableOpacity>
       </View>
@@ -169,6 +175,7 @@ const stylis = StyleSheet.create({
     color: 'black',
     fontSize: 18,
     fontWeight: '500',
+    marginLeft: -150,
   },
   HeaderImage: {
     width: 35,
@@ -200,10 +207,8 @@ const stylis = StyleSheet.create({
   InputCm: {
     margin: 50,
     marginTop: 100,
-    // marginBottom: -50,
     borderBottomWidth: 1 / 2,
     borderBottomColor: 'black',
-    // borderWidth: 1 / 2,
   },
   Buttons: {
     justifyContent: 'center',
