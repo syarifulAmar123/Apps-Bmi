@@ -5,11 +5,24 @@ import {
   View,
   TextInput,
   TouchableOpacity,
+  Modal,
+  StatusBar,
 } from 'react-native';
 
 const Broca = () => {
   const [cm, setCm] = useState(0);
-  const [kg, setKg] = useState(0);
+  const [visible, setVisible] = useState(false);
+  const [Hasil, setHasil] = useState('');
+  const BrocaCowo = () => {
+    let awalBroca = cm - 100;
+    setHasil(awalBroca);
+    setVisible(true);
+  };
+  const BrocaCewe = () => {
+    let awalBroca = cm - 104;
+    setHasil(awalBroca);
+    setVisible(true);
+  };
   return (
     <View style={{flex: 1, backgroundColor: '#80cbc4'}}>
       <Text
@@ -30,7 +43,7 @@ const Broca = () => {
           style={{color: 'black', fontSize: 14, fontWeight: '400'}}
         />
       </View>
-      <View style={[stylis.InputCm, {marginTop: 10}]}>
+      {/* <View style={[stylis.InputCm, {marginTop: 10}]}>
         <TextInput
           placeholder="Masukan Tinggi Anda (cm)*"
           placeholderTextColor={'#34495e'}
@@ -38,13 +51,43 @@ const Broca = () => {
           onChangeText={text => setKg(text)}
           style={{color: 'black', fontSize: 14, fontWeight: '400'}}
         />
-      </View>
-      <TouchableOpacity style={stylis.Buttons} onPress={() => HitungUtama()}>
+      </View> */}
+      <TouchableOpacity style={stylis.Buttons} onPress={() => BrocaCowo()}>
         <Text style={stylis.TextButtons}>Hitung Cowo</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={stylis.Buttons} onPress={() => HitungUtama()}>
+      <TouchableOpacity style={stylis.Buttons} onPress={() => BrocaCewe()}>
         <Text style={stylis.TextButtons}>Hitung Cewe</Text>
       </TouchableOpacity>
+      <Modal animationType="fade" visible={visible}>
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: '#263238',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <StatusBar barStyle={'light-content'} backgroundColor={'#263238'} />
+          <Text style={{color: 'white', fontSize: 21, textAlign: 'center'}}>
+            Berat badan ideal anda adalah {Hasil}
+          </Text>
+          <TouchableOpacity
+            style={{
+              backgroundColor: '#268981',
+              marginTop: 40,
+              width: 100,
+              height: 30,
+              borderRadius: 5,
+              borderWidth: 1 / 2,
+              //   position: 'absolute',
+              borderColor: '#000000',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+            onPress={() => setVisible(false)}>
+            <Text style={{color: 'white'}}>Close</Text>
+          </TouchableOpacity>
+        </View>
+      </Modal>
     </View>
   );
 };
