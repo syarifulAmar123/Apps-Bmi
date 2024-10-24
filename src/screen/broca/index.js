@@ -7,33 +7,63 @@ import {
   TouchableOpacity,
   Modal,
   StatusBar,
+  Alert,
+  Image,
 } from 'react-native';
+import {Balik} from '../../assets';
 
-const Broca = () => {
+const Broca = ({navigation}) => {
   const [cm, setCm] = useState(0);
   const [visible, setVisible] = useState(false);
   const [Hasil, setHasil] = useState('');
   const BrocaCowo = () => {
-    let awalBroca = cm - 100;
-    setHasil(awalBroca);
-    setVisible(true);
+    if (cm == 0) {
+      Alert.alert('Isikan terlebih Dahulu');
+    } else {
+      let awalBroca = cm - 100;
+      let AkhirBroca = awalBroca * (10 / 100);
+      let hasil = awalBroca - AkhirBroca;
+      setHasil(hasil.toFixed(1));
+      setVisible(true);
+      setTimeout(() => {
+        setCm(0);
+      }, 500);
+    }
   };
   const BrocaCewe = () => {
-    let awalBroca = cm - 104;
-    setHasil(awalBroca);
-    setVisible(true);
+    if (cm == 0) {
+      Alert.alert('Isikan terlebih Dahulu');
+    } else {
+      let awalBroca = cm - 104;
+      let AkhirBroca = awalBroca * (10 / 100);
+      let hasil = awalBroca - AkhirBroca;
+      setHasil(hasil.toFixed(1));
+      setVisible(true);
+      setTimeout(() => {
+        setCm(0);
+      }, 500);
+    }
   };
   return (
     <View style={{flex: 1, backgroundColor: '#80cbc4'}}>
-      <Text
-        style={{
-          textAlign: 'center',
-          marginTop: 50,
-          fontSize: 30,
-          color: '#e74c3c',
-        }}>
-        Broca Calculator
-      </Text>
+      <View style={{flexDirection: 'row', alignItems: 'center', marginTop: 20}}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image
+            source={Balik}
+            style={{width: 35, height: 35, marginLeft: 10}}
+          />
+        </TouchableOpacity>
+        <Text
+          style={{
+            textAlign: 'center',
+            marginLeft: 40,
+            fontSize: 35,
+            color: '#2c3e50',
+            fontWeight: '600',
+          }}>
+          Broca Calculator
+        </Text>
+      </View>
       <View style={[stylis.InputCm, {marginTop: 200}]}>
         <TextInput
           placeholder="Masukan Tinggi Anda (cm)*"
@@ -43,15 +73,6 @@ const Broca = () => {
           style={{color: 'black', fontSize: 14, fontWeight: '400'}}
         />
       </View>
-      {/* <View style={[stylis.InputCm, {marginTop: 10}]}>
-        <TextInput
-          placeholder="Masukan Tinggi Anda (cm)*"
-          placeholderTextColor={'#34495e'}
-          value={kg}
-          onChangeText={text => setKg(text)}
-          style={{color: 'black', fontSize: 14, fontWeight: '400'}}
-        />
-      </View> */}
       <TouchableOpacity style={stylis.Buttons} onPress={() => BrocaCowo()}>
         <Text style={stylis.TextButtons}>Hitung Cowo</Text>
       </TouchableOpacity>

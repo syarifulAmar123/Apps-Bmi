@@ -38,18 +38,19 @@ export default function Bmi({navigation}) {
       if (hasilDesimal < 18.5) {
         setKategori(' Underweight');
         Alert.alert('Makan Yang Banyak');
-      } else if (hasilDesimal > 18.5 && hasilDesimal < 24.9) {
+      } else if (hasilDesimal < 24.9) {
         setKategori(' Normal weight');
         Alert.alert('Congratsss 🤖🤖');
-      } else if (hasilDesimal > 25 && hasilDesimal < 29.9) {
+      } else if (hasilDesimal >= 25 && hasilDesimal <= 29.9) {
         setKategori(' Overweight');
         Alert.alert('Jaga Pola Makan');
-      } else {
-        setKategori(' obesity');
-        Alert.alert('Kurangi makan , Perbanyak Olahraga');
+      } else if (hasilDesimal > 29.9) {
+        setKategori(' Obesity');
+        Alert.alert('Kurangi makan');
       }
       setVisible(true);
       setHasil(hasilDesimal);
+      // setKategori(kategori);
     } else {
       Alert.alert('Data yang Anda Masukan tidak Valid');
     }

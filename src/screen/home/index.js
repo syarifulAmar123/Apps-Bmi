@@ -22,30 +22,28 @@ const Home = ({navigation}) => {
       <Text style={styles.Title}>Silahkan Pilih Cara penghitungan</Text>
       <View
         style={{
-          flexDirection: 'row',
+          flexDirection: 'column',
           justifyContent: 'space-between',
-          marginLeft: 15,
+          marginLeft: 40,
           marginRight: 15,
-          marginTop: 70,
+          marginTop: 50,
         }}>
-        <TouchableOpacity
+        <View
           style={{
-            width: 180,
-            height: 250,
+            width: 330,
+            height: 330,
             backgroundColor: '#00cec9',
             alignItems: 'center',
             borderRadius: 10,
             elevation: 1,
             // marginLeft: 30,
-          }}
-          activeOpacity={0.75}
-          onPress={() => PindahBroca()}>
+          }}>
           <Image
             source={LogoBroca}
             style={{
               width: 70,
               height: 70,
-              marginTop: 10,
+              marginTop: 30,
               borderTopLeftRadius: 10,
               borderTopRightRadius: 10,
             }}
@@ -56,8 +54,8 @@ const Home = ({navigation}) => {
                 color: 'black',
                 fontSize: 18,
                 fontFamily: 'Roboto-Medium',
-                marginTop: 10,
-                marginLeft: 50,
+                marginTop: 5,
+                marginLeft: 123,
                 alignItems: 'flex-start',
               }}>
               BROCA
@@ -66,13 +64,13 @@ const Home = ({navigation}) => {
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
-                marginTop: 10,
+                marginTop: 15,
               }}>
               <Text
                 style={{
                   color: 'black',
                   marginLeft: 8,
-                  fontSize: 11,
+                  fontSize: 16,
                   textAlign: 'center',
                 }}>
                 Rumus Broca adalah metode yang digunakan untuk menghitung berat
@@ -80,20 +78,35 @@ const Home = ({navigation}) => {
                 pria dan wanita,
               </Text>
             </View>
+            <TouchableOpacity
+              style={{
+                width: 100,
+                height: 35,
+                backgroundColor: '#44aaf2',
+                justifyContent: 'center',
+                borderRadius: 10,
+                marginTop: 50,
+                marginLeft: 200,
+              }}
+              activeOpacity={0.75}
+              onPress={() => PindahBroca()}>
+              <Text style={{textAlign: 'center', color: 'white'}}>
+                GoTo Screen
+              </Text>
+            </TouchableOpacity>
           </View>
-        </TouchableOpacity>
-        <TouchableOpacity
+        </View>
+        <View
           style={{
-            width: 180,
-            height: 250,
+            width: 330,
+            height: 330,
             backgroundColor: '#45aaf2',
             alignItems: 'center',
             borderRadius: 10,
             elevation: 1,
+            marginTop: 30,
             // marginLeft: 30,
-          }}
-          activeOpacity={0.75}
-          onPress={() => Pindahbmi()}>
+          }}>
           <Image
             source={LogoBmi}
             style={{
@@ -111,7 +124,7 @@ const Home = ({navigation}) => {
                 fontSize: 21,
                 fontFamily: 'Roboto-Medium',
                 marginTop: -1,
-                marginLeft: 60,
+                marginLeft: 130,
                 alignItems: 'flex-start',
               }}>
               BMI
@@ -120,14 +133,14 @@ const Home = ({navigation}) => {
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
-                marginTop: 10,
+                marginTop: 20,
               }}>
               <Text
                 style={{
                   color: 'black',
                   marginTop: -5,
                   marginLeft: 8,
-                  fontSize: 10,
+                  fontSize: 14,
                   textAlign: 'center',
                 }}>
                 BMI adalah metode yang digunakan untuk menghitung indeks massa
@@ -137,20 +150,23 @@ const Home = ({navigation}) => {
               </Text>
             </View>
           </View>
-        </TouchableOpacity>
-      </View>
-      <View style={{margin: 15, padding: 5}}>
-        <Text style={{color: 'black', marginTop: 10, textAlign: 'center'}}>
-          Kedua alat diatas ini memiliki peran masing-masing dalam membantu
-          individu memahami dan mengelola berat badan mereka. Sementara BMI
-          memberikan gambaran lebih menyeluruh tentang status berat badan
-          relatif terhadap kesehatan, kalkulator Broca menawarkan panduan yang
-          lebih sederhana untuk menetapkan target berat badan. Namun, penting
-          untuk diingat bahwa kedua metode ini tidak sempurna dan sebaiknya
-          digunakan bersama dengan penilaian kesehatan yang lebih komprehensif,
-          termasuk pemeriksaan fisik dan penilaian komposisi tubuh, untuk
-          mendapatkan gambaran yang lebih akurat tentang kesehatan seseorang.
-        </Text>
+          <TouchableOpacity
+            style={{
+              width: 100,
+              height: 35,
+              backgroundColor: '#00cec9',
+              justifyContent: 'center',
+              borderRadius: 10,
+              marginTop: 40,
+              marginLeft: 200,
+            }}
+            activeOpacity={0.75}
+            onPress={() => Pindahbmi()}>
+            <Text style={{textAlign: 'center', color: 'white'}}>
+              GoTo Screen
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -160,7 +176,7 @@ const styles = StyleSheet.create({
   Title: {
     color: '#2c2c54',
     textAlign: 'center',
-    marginTop: 50,
+    marginTop: 20,
     fontSize: 22,
     fontWeight: 'bold',
     fontFamily: 'Roboto-Italic',

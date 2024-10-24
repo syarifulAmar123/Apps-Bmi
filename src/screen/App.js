@@ -11,7 +11,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Amar.Navigator
-        initialRouteName="Home"
+        initialRouteName="splashScreen"
         screenOptions={{headerShown: false}}>
         <Amar.Screen name="splashScreen" component={SpalshScreen} />
         <Amar.Screen name="Home" component={Home} />
