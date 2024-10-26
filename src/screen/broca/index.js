@@ -66,6 +66,7 @@ const Broca = ({navigation}) => {
       </View>
       <View style={[stylis.InputCm, {marginTop: 200}]}>
         <TextInput
+          keyboardType="numeric"
           placeholder="Masukan Tinggi Anda (cm)*"
           placeholderTextColor={'#34495e'}
           value={cm}

@@ -110,6 +110,7 @@ export default function Bmi({navigation}) {
       </View>
       <View style={stylis.InputCm}>
         <TextInput
+          keyboardType="numeric"
           placeholder="Masukan Tinggi Anda (cm)*"
           placeholderTextColor={'#34495e'}
           value={cm}
@@ -119,6 +120,7 @@ export default function Bmi({navigation}) {
       </View>
       <View style={[stylis.InputCm, {marginTop: -5}]}>
         <TextInput
+          keyboardType="numeric"
           placeholder="Masukan BeratBadan Anda (kg)*"
           placeholderTextColor={'#34495e'}
           value={kg}

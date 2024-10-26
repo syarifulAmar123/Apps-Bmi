@@ -36,7 +36,6 @@ const Home = ({navigation}) => {
             alignItems: 'center',
             borderRadius: 10,
             elevation: 1,
-            // marginLeft: 30,
           }}>
           <Image
             source={LogoBroca}
