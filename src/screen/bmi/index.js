@@ -37,16 +37,24 @@ export default function Bmi({navigation}) {
       let hasilDesimal = hasil.toFixed(1);
       if (hasilDesimal < 18.5) {
         setKategori(' Underweight');
-        Alert.alert('Makan Yang Banyak');
+        setTimeout(() => {
+          Alert.alert('Makan Yang Banyak');
+        }, 1500);
       } else if (hasilDesimal < 24.9) {
         setKategori(' Normal weight');
-        Alert.alert('Congratsss 🤖🤖');
-      } else if (hasilDesimal >= 25 && hasilDesimal <= 29.9) {
+        setTimeout(() => {
+          Alert.alert('Congratsss 🤖🤖');
+        }, 1500);
+      } else if (hasilDesimal >= 25 || hasilDesimal <= 29.9) {
         setKategori(' Overweight');
-        Alert.alert('Jaga Pola Makan');
+        setTimeout(() => {
+          Alert.alert('Jaga Pola Makan');
+        }, 1500);
       } else if (hasilDesimal > 29.9) {
         setKategori(' Obesity');
-        Alert.alert('Kurangi makan');
+        setTimeout(() => {
+          Alert.alert('Kurangi makan');
+        }, 1500);
       }
       setVisible(true);
       setHasil(hasilDesimal);
@@ -77,7 +85,7 @@ export default function Bmi({navigation}) {
         </TouchableOpacity>
       </View>
       <View style={stylis.containerContent}>
-        <TouchableOpacity
+        <View
           style={stylis.BackgroundContent}
           activeOpacity={0.4}
           onPress={() => Laki()}
@@ -91,8 +99,8 @@ export default function Bmi({navigation}) {
             source={Man}
             style={[stylis.content, {marginHorizontal: 50}]}
           />
-        </TouchableOpacity>
-        <TouchableOpacity
+        </View>
+        <View
           style={stylis.BackgroundContent}
           activeOpacity={0.4}
           onPress={() => Cewe()}
@@ -106,7 +114,7 @@ export default function Bmi({navigation}) {
             source={Woman}
             style={[stylis.content, {marginHorizontal: 50}]}
           />
-        </TouchableOpacity>
+        </View>
       </View>
       <View style={stylis.InputCm}>
         <TextInput

@@ -5,6 +5,7 @@ import SpalshScreen from './splashScreen';
 import Home from './home';
 import Bmi from './bmi';
 import Broca from './broca';
+import SmoothAlert from './test';
 
 const App = () => {
   const Amar = createNativeStackNavigator();
