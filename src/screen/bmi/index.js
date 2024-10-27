@@ -146,6 +146,7 @@ export default function Bmi({navigation}) {
             backgroundColor: '#263238',
             justifyContent: 'center',
             alignItems: 'center',
+            marginHorizontal: 15,
           }}>
           <StatusBar barStyle={'light-content'} backgroundColor={'#263238'} />
           <Text style={{color: 'white', fontSize: 21, textAlign: 'center'}}>
