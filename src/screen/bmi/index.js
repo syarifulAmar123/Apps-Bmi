@@ -146,13 +146,20 @@ export default function Bmi({navigation}) {
             backgroundColor: '#263238',
             justifyContent: 'center',
             alignItems: 'center',
-            marginHorizontal: 15,
+            // marginHorizontal: 15,
           }}>
           <StatusBar barStyle={'light-content'} backgroundColor={'#263238'} />
-          <Text style={{color: 'white', fontSize: 21, textAlign: 'center'}}>
-            Berat badan anda adalah {hasil} kg maka anda termasuk
-            {kategori}
-          </Text>
+          <View
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginHorizontal: 20,
+            }}>
+            <Text style={{color: 'white', fontSize: 21, textAlign: 'center'}}>
+              Berat badan anda adalah {hasil} kg maka anda termasuk
+              {kategori}
+            </Text>
+          </View>
           <TouchableOpacity
             style={{
               backgroundColor: '#268981',
