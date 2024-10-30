@@ -13,14 +13,12 @@ import {
 import {Back, Balik, Man, Woman} from '../../assets';
 
 export default function Bmi({navigation}) {
-  const [gender, setGender] = useState(false);
-  const [pria, setPria] = useState(false);
-  const [perempuan, setperempuan] = useState(false);
   const [cm, setCm] = useState(0);
   const [kg, setKg] = useState(0);
   const [kategori, setKategori] = useState('');
   const [visible, setVisible] = useState(false);
   const [hasil, setHasil] = useState('');
+  const [Pesan, setPesan] = useState('');
 
   const Laki = () => {
     setGender(false);
@@ -37,24 +35,16 @@ export default function Bmi({navigation}) {
       let hasilDesimal = hasil.toFixed(1);
       if (hasilDesimal < 18.5) {
         setKategori(' Underweight');
-        setTimeout(() => {
-          Alert.alert('Makan Yang Banyak');
-        }, 1500);
+        setPesan('Makan Yang Banyak');
       } else if (hasilDesimal < 24.9) {
         setKategori(' Normal weight');
-        setTimeout(() => {
-          Alert.alert('Congratsss 🤖🤖');
-        }, 1500);
+        setPesan('Congratsss 🤖🤖');
       } else if (hasilDesimal >= 25 || hasilDesimal <= 29.9) {
         setKategori(' Overweight');
-        setTimeout(() => {
-          Alert.alert('Jaga Pola Makan');
-        }, 1500);
+        setPesan('Jaga Pola Makan');
       } else if (hasilDesimal > 29.9) {
         setKategori(' Obesity');
-        setTimeout(() => {
-          Alert.alert('Kurangi makan');
-        }, 1500);
+        setPesan('Kurangi makan');
       }
       setVisible(true);
       setHasil(hasilDesimal);
@@ -67,6 +57,13 @@ export default function Bmi({navigation}) {
   const ulang = () => {
     setCm('');
     setKg('');
+  };
+
+  const tutupModal = () => {
+    setVisible(false);
+    setTimeout(() => {
+      Alert.alert(Pesan);
+    }, 1000);
   };
 
   return (
@@ -173,7 +170,7 @@ export default function Bmi({navigation}) {
               justifyContent: 'center',
               alignItems: 'center',
             }}
-            onPress={() => setVisible(false)}>
+            onPress={() => tutupModal()}>
             <Text style={{color: 'white'}}>Close</Text>
           </TouchableOpacity>
         </View>
