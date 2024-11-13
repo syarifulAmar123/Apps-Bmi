@@ -19,6 +19,7 @@ export default function Bmi({navigation}) {
   const [visible, setVisible] = useState(false);
   const [hasil, setHasil] = useState('');
   const [Pesan, setPesan] = useState('');
+  const [alert, setAlert] = useState(false);
 
   const Laki = () => {
     setGender(false);
@@ -62,7 +63,7 @@ export default function Bmi({navigation}) {
   const tutupModal = () => {
     setVisible(false);
     setTimeout(() => {
-      Alert.alert(Pesan);
+      setAlert(true);
     }, 1000);
   };
 
@@ -143,7 +144,6 @@ export default function Bmi({navigation}) {
             backgroundColor: '#263238',
             justifyContent: 'center',
             alignItems: 'center',
-            // marginHorizontal: 15,
           }}>
           <StatusBar barStyle={'light-content'} backgroundColor={'#263238'} />
           <View
@@ -174,6 +174,36 @@ export default function Bmi({navigation}) {
             <Text style={{color: 'white'}}>Close</Text>
           </TouchableOpacity>
         </View>
+      </Modal>
+      <Modal transparent={true} visible={alert} animationType="slide">
+        <TouchableOpacity style={{flex: 1}} onPress={() => setAlert(false)}>
+          <View
+            style={{
+              alignSelf: 'center',
+              backgroundColor: 'rgba(250, 177, 160, 0.9)',
+              width: 270,
+              height: 150,
+              borderRadius: 20,
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginTop: 120,
+            }}>
+            <Text
+              style={{
+                position: 'absolute',
+                top: 20,
+                left: 30,
+                color: 'black',
+                fontSize: 23,
+                fontWeight: '500',
+              }}>
+              Pesan :
+            </Text>
+            <Text style={{color: 'white', fontSize: 19, fontWeight: 'bold'}}>
+              {Pesan}
+            </Text>
+          </View>
+        </TouchableOpacity>
       </Modal>
     </View>
   );
